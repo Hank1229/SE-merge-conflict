@@ -18,49 +18,19 @@ A simple Python calculator application designed to demonstrate git merge conflic
    cd SE-merge-conflict
    ```
 
-2. Fetch all branches from the remote:
+2. Run the setup script to create the workshop branches:
    ```bash
-   git fetch origin
+   python setup_workshop.py
    ```
+   The script creates `feature-power`, `feature-modulo`, and browser branches (`main-browser`, `feature-power-browser`, `feature-modulo-browser`) from the current repo state.
 
-3. Pull all branches to create local tracking branches:
-   ```bash
-   git checkout feature-power
-   git checkout feature-modulo
-   git checkout main-browser
-   git checkout feature-power-browser
-   git checkout feature-modulo-browser
-   git checkout main
-   ```
-   
-   Note: When you checkout a remote branch for the first time, git automatically creates a local tracking branch.
-
-4. Verify the initial state:
+3. Optionally verify the setup:
    ```bash
    git log --oneline
    git branch
    ```
 
-### Step 2: Explore the Branches
-
-This repository contains several branches:
-
-**Command-line demo branches:**
-- `feature-power` branch that adds a power operation
-- `feature-modulo` branch that adds a modulo operation
-- Both branches modify the same sections of code, creating merge conflicts
-
-**Browser demo branches (for GitHub web interface):**
-- `main-browser` - exact copy of main
-- `feature-power-browser` - adds power operation
-- `feature-modulo-browser` - adds modulo operation
-
-You can view all available branches:
-```bash
-git branch -a
-```
-
-### Step 3: Experience the Conflict
+### Step 2: Experience the Conflict
 
 1. Switch to the `feature-power` branch:
    ```bash
@@ -85,7 +55,7 @@ git branch -a
    ```
    **This will create merge conflicts!**
 
-### Step 4: Resolve the Conflicts
+### Step 3: Resolve the Conflicts
 
 1. Open `calculator.py` in your editor. You'll see conflict markers:
    ```
@@ -112,7 +82,7 @@ git branch -a
    ```
    (Git will open an editor with a default merge commit message)
 
-### Step 5: Verify the Resolution
+### Step 4: Verify the Resolution
 
 1. Test the calculator:
    ```bash
@@ -131,14 +101,11 @@ git branch -a
 
 ### Reset to Start Over
 
-If you want to start fresh:
+If you want to start fresh, run the setup script again. When prompted, choose to delete and recreate the branches:
 ```bash
-git checkout main
-git reset --hard HEAD
-git clean -fd
+python setup_workshop.py
 ```
-
-Note: The branches are already set up in the repository. If you've made changes and want to reset, you may need to fetch the original branches again.
+Answer `y` when asked "Branches already exist. Delete and recreate?"
 
 ### View Conflict Details
 
