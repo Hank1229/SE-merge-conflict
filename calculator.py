@@ -82,6 +82,7 @@ def main():
         print(f"Error: {e}")
     except Exception as e:
         print(f"Unexpected error: {e}")
+        print("This is just for test")
 
 
 if __name__ == "__main__":
